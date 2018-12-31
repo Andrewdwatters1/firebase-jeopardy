@@ -12,64 +12,65 @@
 <body>
   <div class="main">
     <h1 class="header"></h1>
-
+    <h4 class="score" id="score"></h4>
     <div class="jeopardy-board">
 
       <div class="board-topic" id="topic-1">
-        <div class="board-answer" id="t1-title"></div>
-        <div class="board-answer" id="t1a1"></div>
-        <div class="board-answer" id="t1a2"></div>
-        <div class="board-answer" id="t1a3"></div>
-        <div class="board-answer" id="t1a4"></div>
-        <div class="board-answer" id="t1a5"></div>
+        <div class="board-answer" id="t1-title">TBD</div>
+        <div class="board-answer" data-value="200" id="t1a1">$200</div>
+        <div class="board-answer" data-value="400" id="t1a2">$400</div>
+        <div class="board-answer" data-value="600" id="t1a3">$600</div>
+        <div class="board-answer" data-value="800" id="t1a4">$800</div>
+        <div class="board-answer" data-value="1000" id="t1a5">$1000</div>
       </div>
 
       <div class="board-topic" id="topic-2">
-        <div class="board-answer" id="t2-title"></div>
-        <div class="board-answer" id="t2a1"></div>
-        <div class="board-answer" id="t2a2"></div>
-        <div class="board-answer" id="t2a3"></div>
-        <div class="board-answer" id="t2a4"></div>
-        <div class="board-answer" id="t2a5"></div>
+        <div class="board-answer" id="t2-title">TBD</div>
+        <div class="board-answer" data-value="200" id="t2a1">$200</div>
+        <div class="board-answer" data-value="400" id="t2a2">$400</div>
+        <div class="board-answer" data-value="600" id="t2a3">$600</div>
+        <div class="board-answer" data-value="800" id="t2a4">$800</div>
+        <div class="board-answer" data-value="1000" id="t2a5">$1000</div>
       </div>
 
       <div class="board-topic" id="topic-3">
-        <div class="board-answer" id="t3-title"></div>
-        <div class="board-answer" id="t3a1"></div>
-        <div class="board-answer" id="t3a2"></div>
-        <div class="board-answer" id="t3a3"></div>
-        <div class="board-answer" id="t3a4"></div>
-        <div class="board-answer" id="t3a5"></div>
+        <div class="board-answer" id="t3-title">TBD</div>
+        <div class="board-answer" data-value="200" id="t3a1">$200</div>
+        <div class="board-answer" data-value="400" id="t3a2">$400</div>
+        <div class="board-answer" data-value="600" id="t3a3">$600</div>
+        <div class="board-answer" data-value="800" id="t3a4">$800</div>
+        <div class="board-answer" data-value="1000" id="t3a5">$1000</div>
       </div>
 
       <div class="board-topic" id="topic-4">
-        <div class="board-answer" id="t4-title"></div>
-        <div class="board-answer" id="t4a1"></div>
-        <div class="board-answer" id="t4a2"></div>
-        <div class="board-answer" id="t4a3"></div>
-        <div class="board-answer" id="t4a4"></div>
-        <div class="board-answer" id="t4a5"></div>
+        <div class="board-answer" id="t4-title">TBD</div>
+        <div class="board-answer" data-value="200" id="t4a1">$200</div>
+        <div class="board-answer" data-value="400" id="t4a2">$400</div>
+        <div class="board-answer" data-value="600" id="t4a3">$600</div>
+        <div class="board-answer" data-value="800" id="t4a4">$800</div>
+        <div class="board-answer" data-value="1000" id="t4a5">$1000</div>
       </div>
 
       <div class="board-topic" id="topic-5">
-        <div class="board-answer" id="t5-title"></div>
-        <div class="board-answer" id="t5a1"></div>
-        <div class="board-answer" id="t5a2"></div>
-        <div class="board-answer" id="t5a3"></div>
-        <div class="board-answer" id="t5a4"></div>
-        <div class="board-answer" id="t5a5"></div>
+        <div class="board-answer" id="t5-title">TBD</div>
+        <div class="board-answer" data-value="200" id="t5a1">$200</div>
+        <div class="board-answer" data-value="400" id="t5a2">$400</div>
+        <div class="board-answer" data-value="600" id="t5a3">$600</div>
+        <div class="board-answer" data-value="800" id="t5a4">$800</div>
+        <div class="board-answer" data-value="1000" id="t5a5">$1000</div>
       </div>
 
       <div class="board-topic" id="topic-6">
-        <div class="board-answer" id="t6-title"></div>
-        <div class="board-answer" id="t6a1"></div>
-        <div class="board-answer" id="t6a2"></div>
-        <div class="board-answer" id="t6a3"></div>
-        <div class="board-answer" id="t6a4"></div>
-        <div class="board-answer" id="t6a5"></div>
+        <div class="board-answer" id="t6-title">TBD</div>
+        <div class="board-answer" data-value="200" id="t6a1">$200</div>
+        <div class="board-answer" data-value="400" id="t6a2">$400</div>
+        <div class="board-answer" data-value="600" id="t6a3">$600</div>
+        <div class="board-answer" data-value="800" id="t6a4">$800</div>
+        <div class="board-answer" data-value="1000" id="t6a5">$1000</div>
       </div>
 
     </div>
+    <button id="mode-toggle">SWITCH TO PLAY MODE</button>
   </div>
 </body>
 
@@ -94,6 +95,9 @@
   };
   firebase.initializeApp(config);
 
+
+
+
   // CREATE DB REFS
   var db = firebase.database();
   var root = db.ref('/jeopardy');
@@ -104,8 +108,12 @@
   });
 
 
+
+
+
   // GET TARGET HTML ELEMENTS
   var header = document.querySelector('.header');
+  var score = document.getElementById('score');
   var board = document.querySelector('.jeopardy-board');
   var topics = {};
   var answers = {};
@@ -115,32 +123,85 @@
     answers[i] = topics[i].children;
   }
 
+  var modeToggle = document.getElementById('mode-toggle');
+  modeToggle.addEventListener('click', function (event) {
+    if (modeToggle.innerText === "SWITCH TO PLAY MODE") {
+      if([...document.querySelectorAll('.board-answer-active')].length !== 36) {
+        confirm('You have not entered all questions/answers, would you like to proceed?')
+      }
+      modeToggle.innerText = "SWITCH TO EDIT/SETUP MODE"
+    } else {
+      modeToggle.innerText = "SWITCH TO PLAY MODE"
+    }
+  })
+
 
 
   board.addEventListener('click', function (event) {
-    console.log(event.target);
-    if (event.target.hasAttribute('data-key')) playTarget()
-    else updateBoardContent(event)
+    if (!event.target.classList.contains('board-answer-complete')) {
+      if (!/title/.test(event.target.id)) {
+
+        if (event.target.hasAttribute('data-key')) {
+          var target = findElement(event.target);
+          if (target) playTarget(target);
+        } else updateBoardContent(event)
+      } else {
+        var target = findElement(event.target);
+        if (target && !event.target.hasAttribute('data-key')) {
+          setCategory(target)
+          target.classList.add('board-answer-active')
+        }
+      }
+    }
   })
+
+
+
+  function setCategory(tgt) {
+    var category = prompt('Enter category for this column (5 questions)', '');
+    if (category) {
+      alert('Category Set!');
+      var dataRef = root.child('questions-and-answers').push();
+      dataRef.set({
+        category
+      }, function (error) {
+        if (error) console.log('Error in writing category data', error);
+        else {
+          tgt.setAttribute('data-key', dataRef.key)
+          root.child('questions-and-answers').on('value', function (snap) {
+            tgt.innerText = snap.val()[dataRef.key].category
+          })
+        }
+      })
+    } else setCategory(tgt)
+  }
 
 
 
   function updateBoardContent(event) {
     var target = findElement(event.target);
     if (target) {
-      var answer = prompt('Enter the Answer (What Alex Trebek would read)');
-      var question = prompt('Now Enter the correct question (What the contestant should say) ');
+      var answer = prompt('Enter the Answer (What Alex Trebek would read)', '');
+      var question = prompt('Now Enter the correct question (What the contestant should say) ', '');
     }
 
-    var dataRef = db.ref('/jeopardy/questions-and-answers').push();
-    dataRef.set({
-      question,
-      answer
-    }, function (error) {
-      if (error) console.log('Error in writing data', error)
-      else target.setAttribute('data-key', dataRef.key)
-    })
+    if (answer && question) {
+      var dataRef = db.ref('/jeopardy/questions-and-answers').push();
+      dataRef.set({
+        question,
+        answer
+      }, function (error) {
+        if (error) console.log('Error in writing data', error)
+        else {
+          target.setAttribute('data-key', dataRef.key)
+          target.classList.add('board-answer-active')
+          playTarget(target);
+        }
+      })
+    }
   }
+
+
 
   function findElement(tgt) {
     var desiredTgt = answers[parseInt(tgt.id[1])][parseInt(tgt.id[3])] || answers[parseInt(tgt.id[1])][0];
@@ -148,18 +209,60 @@
     else return null;
   }
 
-  function playTarget() {
-    return null;
+
+
+
+  function playTarget(tgt) {
+
+    var correctQuestion;
+    if (!tgt.dataset.active) {
+      tgt.setAttribute('data-active', true)
+    } else if (modeToggle.innerText === "SWITCH TO EDIT/SETUP MODE") {
+      console.log(modeToggle.innerText);
+      tgt.classList.add('board-answer-current');
+      root.child('questions-and-answers').on('value', function (snap) {
+        tgt.innerText = snap.val()[tgt.dataset.key].answer;
+        correctQuestion = snap.val()[tgt.dataset.key].question
+      })
+
+      setTimeout(() => {
+        var question = prompt('Your response... (remember to phrase as a question) ', '');
+        if (question && question === correctQuestion) {
+          updateScore(tgt.dataset.value, true)
+        } else if (question && question !== correctQuestion) {
+          updateScore(tgt.dataset.value, false)
+        }
+        tgt.classList.remove('board-answer-current');
+        tgt.classList.add('board-answer-complete');
+        tgt.setAttribute('data-active', false)
+      }, 3000)
+    }
   }
 
 
-  root.child('header').on('value', function (snap) {
-    header.innerText = snap.val().toUpperCase();
-  })
 
-  // root.child('questions-and-answers').on('value', function (snap) {
-// 
-  // })
+  function updateScore(points, correct) {
+    var newScore;
+    root.child('score').on('value', function (snap) {
+      newScore = snap.val().slice(1);
+      if (correct) newScore = parseInt(newScore) + parseInt(points);
+      else newScore = parseInt(newScore) - parseInt(points);
+    })
+    root.set({
+      score: "$" + newScore.toString()
+    })
+  }
+
+
+
+
+  root.child('header').on('value', function (snap) {
+    if (snap.val()) header.innerText = snap.val().toUpperCase();
+    else header.innerText = 'JEOPARDY'
+  })
+  root.child('score').on('value', function (snap) {
+    score.innerText = snap.val()
+  })
 
 
 </script>

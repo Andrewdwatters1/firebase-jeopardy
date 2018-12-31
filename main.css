@@ -1,20 +1,35 @@
 .main {
-  width: 95vw;
-  height: 95vh;
   margin: 0 auto;
+  padding: 3vh;
   display: grid;
-  grid-template-rows: 1fr 6.5fr;
+  grid-template-rows: 1fr .2fr 10fr;
   grid-template-columns: 1fr;
-  /* grid-template: 1fr 6.5fr / 1fr; */
+  background-color: rgba(30, 30, 255, .6)
+}
+
+#mode-toggle {
+  position: fixed;
+  font-size: 1em;
+  height: 30px;
+  width: 300px;
+}
+.button-large {
+  height: 80px;
+  width: 250px;
 }
 
 .header {
   font-size: 3em;
   letter-spacing: 5px;
   text-align: center;
-  border: 3px solid darkblue;
-  background-color: blue;
+  margin: 10px auto;
   color: gold;
+}
+
+.score {
+  font-size: 3em;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .jeopardy-board {
@@ -33,10 +48,37 @@
 .board-answer {
   border: 3px solid blue;
   margin: 3px;
-  background-color: rgba(0, 50, 255, 0.6);
+  background-color: rgba(120, 150, 240, 0.85);
   color: gold;
+  text-align: center;
+  font-size: 2em;
   height: 100%;
 }
+
 .board-answer:hover {
   cursor: pointer;
+}
+
+.board-answer-active {
+  background-color: rgba(0, 50, 255, 0.7);
+}
+
+.board-answer-current {
+  position: fixed;
+  top: 15vh;
+  left: 8vw;
+  right: 8vw;
+  bottom: 8vh;
+  width: 84vw;
+  height: 76vh; 
+  background: blue;
+  font-size: 2.5em;
+  text-align: center;
+}
+
+.board-answer-complete {
+  background-color: gray;
+}
+.board-answer-complete:hover {
+  cursor: not-allowed;
 }
