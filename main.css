@@ -1,0 +1,42 @@
+.main {
+  width: 95vw;
+  height: 95vh;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 1fr 6.5fr;
+  grid-template-columns: 1fr;
+  /* grid-template: 1fr 6.5fr / 1fr; */
+}
+
+.header {
+  font-size: 3em;
+  letter-spacing: 5px;
+  text-align: center;
+  border: 3px solid darkblue;
+  background-color: blue;
+  color: gold;
+}
+
+.jeopardy-board {
+  width: 100%;
+  display: grid;
+  grid-template: 1fr / 1fr 1fr 1fr 1fr 1fr 1fr; 
+}
+
+.board-topic {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.board-answer {
+  border: 3px solid blue;
+  margin: 3px;
+  background-color: rgba(0, 50, 255, 0.6);
+  color: gold;
+  height: 100%;
+}
+.board-answer:hover {
+  cursor: pointer;
+}

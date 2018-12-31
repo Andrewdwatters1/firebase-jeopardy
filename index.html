@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <title>Firebase Jeapordy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+
+<body>
+  <div class="main">
+    <h1 class="header"></h1>
+
+    <div class="jeopardy-board">
+
+      <div class="board-topic" id="topic-1">
+        <div class="board-answer" id="t1-title"></div>
+        <div class="board-answer" id="t1a1"></div>
+        <div class="board-answer" id="t1a2"></div>
+        <div class="board-answer" id="t1a3"></div>
+        <div class="board-answer" id="t1a4"></div>
+        <div class="board-answer" id="t1a5"></div>
+      </div>
+
+      <div class="board-topic" id="topic-2">
+        <div class="board-answer" id="t2-title"></div>
+        <div class="board-answer" id="t2a1"></div>
+        <div class="board-answer" id="t2a2"></div>
+        <div class="board-answer" id="t2a3"></div>
+        <div class="board-answer" id="t2a4"></div>
+        <div class="board-answer" id="t2a5"></div>
+      </div>
+
+      <div class="board-topic" id="topic-3">
+        <div class="board-answer" id="t3-title"></div>
+        <div class="board-answer" id="t3a1"></div>
+        <div class="board-answer" id="t3a2"></div>
+        <div class="board-answer" id="t3a3"></div>
+        <div class="board-answer" id="t3a4"></div>
+        <div class="board-answer" id="t3a5"></div>
+      </div>
+
+      <div class="board-topic" id="topic-4">
+        <div class="board-answer" id="t4-title"></div>
+        <div class="board-answer" id="t4a1"></div>
+        <div class="board-answer" id="t4a2"></div>
+        <div class="board-answer" id="t4a3"></div>
+        <div class="board-answer" id="t4a4"></div>
+        <div class="board-answer" id="t4a5"></div>
+      </div>
+
+      <div class="board-topic" id="topic-5">
+        <div class="board-answer" id="t5-title"></div>
+        <div class="board-answer" id="t5a1"></div>
+        <div class="board-answer" id="t5a2"></div>
+        <div class="board-answer" id="t5a3"></div>
+        <div class="board-answer" id="t5a4"></div>
+        <div class="board-answer" id="t5a5"></div>
+      </div>
+
+      <div class="board-topic" id="topic-6">
+        <div class="board-answer" id="t6-title"></div>
+        <div class="board-answer" id="t6a1"></div>
+        <div class="board-answer" id="t6a2"></div>
+        <div class="board-answer" id="t6a3"></div>
+        <div class="board-answer" id="t6a4"></div>
+        <div class="board-answer" id="t6a5"></div>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/5.6.0/firebase.js"></script>
+<script src="./private.js"></script>
+
+
+<script>
+
+  // INITIALIZE FIREBASE
+  var config = {
+    apiKey,
+    authDomain: "learn-dat-firebayse.firebaseapp.com",
+    databaseURL: "https://learn-dat-firebayse.firebaseio.com",
+    projectId: "learn-dat-firebayse",
+    storageBucket: "learn-dat-firebayse.appspot.com",
+    messagingSenderId: "1064240039471"
+  };
+  firebase.initializeApp(config);
+
+  // CREATE DB REFS
+  var db = firebase.database();
+  var root = db.ref('/jeopardy');
+  // var root = db.ref().child('jeopardy');
+
+  root.on('value', function (snap) {
+    console.log(snap.val());
+  });
+
+
+  // GET TARGET HTML ELEMENTS
+  var header = document.querySelector('.header');
+  var board = document.querySelector('.jeopardy-board');
+  var topics = {};
+  var answers = {};
+
+  for (let i = 1; i < 7; i++) {
+    topics[i] = document.getElementById('topic-' + i.toString())
+    answers[i] = topics[i].children;
+  }
+
+
+
+  board.addEventListener('click', function (event) {
+    console.log(event.target);
+    if (event.target.hasAttribute('data-key')) playTarget()
+    else updateBoardContent(event)
+  })
+
+
+
+  function updateBoardContent(event) {
+    var target = findElement(event.target);
+    if (target) {
+      var answer = prompt('Enter the Answer (What Alex Trebek would read)');
+      var question = prompt('Now Enter the correct question (What the contestant should say) ');
+    }
+
+    var dataRef = db.ref('/jeopardy/questions-and-answers').push();
+    dataRef.set({
+      question,
+      answer
+    }, function (error) {
+      if (error) console.log('Error in writing data', error)
+      else target.setAttribute('data-key', dataRef.key)
+    })
+  }
+
+  function findElement(tgt) {
+    var desiredTgt = answers[parseInt(tgt.id[1])][parseInt(tgt.id[3])] || answers[parseInt(tgt.id[1])][0];
+    if (desiredTgt === tgt) return desiredTgt;
+    else return null;
+  }
+
+  function playTarget() {
+    return null;
+  }
+
+
+  root.child('header').on('value', function (snap) {
+    header.innerText = snap.val().toUpperCase();
+  })
+
+  // root.child('questions-and-answers').on('value', function (snap) {
+// 
+  // })
+
+
+</script>
